@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Processor</title>
+	<meta charset="utf-8" />
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'processor/css/bootstrap.min.css' %}" type = "text/css"/>
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+
+	<style type="text/css">
+		html,
+		body {
+		  height:100%
+		}
+	</style>
+</head>
+
+<body class="body" style="background-color:#f6f6f6">
+	<div class="container-fluid" style="min-height:95%; ">
+		<div class="row">
+			  <div class="col-sm-2">
+				  <br>
+                  <center>
+					<img src="{% static 'processor/img/profile.jpeg' %}" class="responsive-img" style='max-height:100px;' alt="face">
+                  </center>
+              </div>
+			  <div class="col-sm-10">
+				  <br>
+				  <h3 style="text-align:center">Presentations</h3>
+			  </div>
+		</div><hr>
+
+		<div class="row">
+		  <div class="col-sm-2">
+		  <br>
+
+		  <br>
+			<div class="well bs-sidebar" id="sidebar" style="background-color:#fff">
+			  <ul class="nav nav-pills nav-stacked">
+				<li><a href='/processor'>Home</a></li>
+				<li><a href='/processor/search/'>List all presentations</a></li>
+				<li><a href='/processor/contact/'>Contact</a></li>
+			  </ul>
+			</div>
+		  </div>
+		  <div class="col-sm-10">
+
+			<div class='container-fluid'>
+			<br><br>
+			   {% block content %}
+			   {% endblock %}
+			</div>
+		  </div>
+		</div>
+	</div>
+	<footer>
+		<div class="container-fluid" style='margin-left:15px'>
+			<p><a href="/processor/contact/" target="blank">Contact</a> | <a href="https://hu.linkedin.com/in/gaborbenedek" target="_blank">LinkedIn</a></p>
+		</div>
+	</footer>
+
+</body>
+
+</html>

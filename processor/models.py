@@ -12,9 +12,7 @@ class Prezi(models.Model):
     title = models.CharField(max_length=200)
     thumbnail = models.SlugField(max_length=200)
     creator = models.ForeignKey(Creator)
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateTimeField()
     
     def __str__(self):
         return self.id
-
-

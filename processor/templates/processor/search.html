@@ -1,0 +1,6 @@
+{% extends "processor/header.html" %}
+{% block content %}
+	{% for prezi in object_list %}
+		<h5>{{ prezi.pub_date|date:"Y-m-d" }}<a href="/search/{{prezi.title}}">  {{ prezi.title }}</a></h5>
+	{% endfor %}
+{% endblock %}
