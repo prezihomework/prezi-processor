@@ -1,6 +1,19 @@
 {% extends "processor/header.html" %}
 {% block content %}
-	{% for prezi in object_list %}
-		<h5>{{ prezi.pub_date|date:"Y-m-d" }}<a href="/search/{{prezi.title}}">  {{ prezi.title }}</a></h5>
-	{% endfor %}
+
+    <table style="width:80%">
+        {% for prezi in object_list %}
+              <tr>
+                <td><h5>{{ prezi.pub_date|date:"Y-m-d" }}<a href="/processor/search/{{prezi.title}}">  {{ prezi.title }}</a></h5></td>
+                <td>ID: {{ prezi.id }}</td>
+                <td>Thumbnail: {{ prezi.thumbnail }}</td>
+                <td>Creator name: {{ creator.name }}</td>
+                <td>Creator profile URL: {{ creator.profileUrl }}</td>
+              </tr>
+        {% endfor %}
+    </table>
+
+    <h3><a href="/search/{{prezi.id}}">{{ prezi.title}}</a></h3>
+
 {% endblock %}
+
