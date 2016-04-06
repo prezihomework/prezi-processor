@@ -29,14 +29,14 @@ def deserialize(request):
 
 
     for i in range(len(full_json)):
-
         single_entry = full_json[i]
+        Creator.objects.update_or_create(name=single_entry["creator"]["name"], profileUrl=single_entry["creator"]["profileUrl"])
 
-        creator = Creator.objects.create(name=single_entry["creator"]["name"], profileUrl=single_entry["creator"]["profileUrl"])
+    for i in range(len(full_json)):
+        single_entry = full_json[i]
         date_object = datetime.strptime(single_entry["createdAt"], '%B %d, %Y')
 
-        #Itt van a hiba. A creator nem fogadja el a creator-t
-        Prezi.objects.get_or_create(id=single_entry["id"], title=single_entry["title"], thumbnail=single_entry["thumbnail"], creator=creator,
-                         pub_date=date_object)
+        Prezi.objects.update_or_create(id=single_entry["id"], title=single_entry["title"], thumbnail=single_entry["thumbnail"], creator=Creator.objects.get(name=single_entry["creator"]["name"], profileUrl=single_entry["creator"]["profileUrl"]),
+                     pub_date=date_object)
 
-    return HttpResponse('asd', content_type="application/json")
+    return render(request, 'processor/home.html')
