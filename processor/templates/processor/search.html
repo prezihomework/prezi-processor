@@ -1,19 +1,22 @@
 {% extends "processor/header.html" %}
 {% block content %}
 
-    <table style="width:80%">
+    <form action="/processor/search">
+        Search for title: <input type="text" name="searchfield">
+        <input type="submit" value="Submit"><br><br>
+    </form>
+
+    <table class="body" style="">
         {% for prezi in object_list %}
               <tr>
-                <td><h5>{{ prezi.pub_date|date:"Y-m-d" }}<a href="/processor/search/{{prezi.title}}">  {{ prezi.title }}</a></h5></td>
+                <td><h5>{{ prezi.pub_date|date:"Y-m-d" }}<a href="/processor/search/?{{prezi.title}}">  {{ prezi.title }}</a></h5></td>
                 <td>ID: {{ prezi.id }}</td>
                 <td>Thumbnail: {{ prezi.thumbnail }}</td>
-                <td>Creator name: {{ creator.name }}</td>
-                <td>Creator profile URL: {{ creator.profileUrl }}</td>
+                <td>Creator name: {{ prezi.creator.name }}</td>
+                <td>Creator profile URL: {{ prezi.creator.profileUrl }}</td>
               </tr>
         {% endfor %}
     </table>
-
-    <h3><a href="/search/{{prezi.id}}">{{ prezi.title}}</a></h3>
 
 {% endblock %}
 

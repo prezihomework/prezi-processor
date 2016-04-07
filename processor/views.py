@@ -39,4 +39,4 @@ def deserialize(request):
         Prezi.objects.update_or_create(id=single_entry["id"], title=single_entry["title"], thumbnail=single_entry["thumbnail"], creator=Creator.objects.get(name=single_entry["creator"]["name"], profileUrl=single_entry["creator"]["profileUrl"]),
                      pub_date=date_object)
 
-    return render(request, 'processor/home.html')
+    return render(request, 'processor/deserialize.html')
