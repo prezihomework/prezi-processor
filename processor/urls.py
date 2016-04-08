@@ -8,12 +8,9 @@ urlpatterns = [
                 url(r'^$', views.index, name='home'),
                 url(r'^contact/', views.contact, name='processor/contact.html'),
                 url(r'^test/', views.test, name='processor/test.html'),
-                url(r'^search/$', ListView.as_view(
-                                    queryset=Prezi.objects.all(),
-                                    template_name="processor/search.html")),
-                url(r'^search/sortByDate', ListView.as_view(
-                    queryset=Prezi.objects.all().order_by('pub_date'),
-                    template_name="processor/search.html")),
+                url(r'^search/$', views.search),
+                url(r'^search/sortByDate', views.sortByDate),
+                url(r'^search/(?P<keyword>[a-zA-Z0-9 ]+)$', views.search),
                 url(r'^list/', views.list, name='processor/list.html'),
                 url(r'^deserialize/', views.deserialize, name='processor/deserialize.html'),
 ]

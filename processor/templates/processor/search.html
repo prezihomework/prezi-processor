@@ -1,13 +1,15 @@
 {% extends "processor/header.html" %}
 {% block content %}
 
-    <form action="/processor/search">
+    <form action="/processor/search/" method="post">
+        {% csrf_token %}
         Search for title: <input type="text" name="searchfield">
         <input type="submit" value="Submit"><br><br>
+        <h3>Result:</h3>
     </form>
 
     <table class="body" style="">
-        {% for prezi in object_list %}
+        {% for prezi in result %}
               <tr>
                 <td><h5>{{ prezi.pub_date|date:"Y-m-d" }}<a href="/processor/search/?{{prezi.title}}">  {{ prezi.title }}</a></h5></td>
                 <td>ID: {{ prezi.id }}</td>

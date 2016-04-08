@@ -27,7 +27,6 @@ def deserialize(request):
     full_prezis = requests.get('http://localhost:8080/prezis')
     full_json = full_prezis.json()
 
-
     for i in range(len(full_json)):
         single_entry = full_json[i]
         Creator.objects.update_or_create(name=single_entry["creator"]["name"], profileUrl=single_entry["creator"]["profileUrl"])
@@ -40,3 +39,17 @@ def deserialize(request):
                      pub_date=date_object)
 
     return render(request, 'processor/deserialize.html')
+
+def search(request, keyword=None):
+    if request.POST:
+        result = Prezi.objects.filter(title=request.POST.get('searchfield'))
+    elif keyword != None:
+        result = Prezi.objects.filter(title=keyword)
+    else:
+        result = Prezi.objects.all()
+
+    return render(request, 'processor/search.html', { 'result': result })
+
+def sortByDate(request):
+    result = Prezi.objects.all().order_by('pub_date')
+    return render(request, 'processor/search.html', { 'result': result })
