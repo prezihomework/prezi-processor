@@ -1,4 +1,4 @@
-Welcome to prezi-processor micro service!
+Welcome to prezi-processor web application!
 ===================
 
 This repository contains a **Python3 & Django** based Web Application with SQLite database structure for representing Prezi data, provided by prezi-data-provider micro service.
