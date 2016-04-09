@@ -1,0 +1,14 @@
+HomePage:
+localhost:8000/processor/
+
+Donwload data from backend:
+localhost:8000/processor/deserialize/
+
+Sarch:
+localhost:8000/processor/search/
+
+Sort by date:
+localhost:8000/processor/search/sortByDate
+
+Contact:
+localhost:8000/processor/contact/
