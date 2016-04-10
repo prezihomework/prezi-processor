@@ -31,9 +31,11 @@ Expected states of the Web App:
 3. List all presentations or search for titles in Search page:
 [http://localhost:8000/processor/search/]()
 4. Sort presentations by data:
-[localhost:8000/processor/search/sortByDate]()
+[http://localhost:8000/processor/search/sortByDate]()
 5. Check contact in:
-[localhost:8000/processor/contact/]()
+[http://localhost:8000/processor/contact/]()
+6. Admin site for User/Group and DataTable handling:
+[http://localhost:8000/admin]()
 
 Public site
 -------------
