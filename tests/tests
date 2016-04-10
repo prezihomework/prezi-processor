@@ -12,3 +12,6 @@ localhost:8000/processor/search/sortByDate
 
 Contact:
 localhost:8000/processor/contact/
+
+Admin site:
+localhost:8000/admin
